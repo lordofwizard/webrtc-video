@@ -26,7 +26,9 @@ async def main():
 
             message = {"id": ID, "sdp": peer_connection.localDescription.sdp, "type": peer_connection.localDescription.type}
             r = requests.post(SIGNALING_SERVER_URL + '/answer', data=message)
-            print(message)    
+            print(message) 
+            while True:
+                await asyncio.sleep(3600)
 
 
 async def run(pc, sdp):

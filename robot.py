@@ -7,11 +7,10 @@ ID = "ttb"
 
 resp = ""
 
-peer_connection = RTCPeerConnection()
 async def main():
-    global peer_connection
     global resp
     print("Robot Starting")
+    peer_connection = RTCPeerConnection()
     channel = peer_connection.createDataChannel("chat")
 
 
@@ -78,6 +77,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 
     # Initialize the RTCPeerConnection
+    pc = RTCPeerConnection()
 
     # Assume laptop_rd is set with the SDP of the laptop
     laptop_rd = resp.json()["sdp"]
