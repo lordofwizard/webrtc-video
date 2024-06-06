@@ -49,11 +49,14 @@ async def main():
                 rd = RTCSessionDescription(sdp=data["sdp"], type=data["type"])
                 await peer_connection.setRemoteDescription(rd)
                 print(peer_connection.remoteDescription)
-                while True:
-                    await asyncio.sleep(1)
+                break
             else:
                 print("Wrong type")
-            break
+                break
+
+    # Keep the connection open
+    while True:
+        await asyncio.sleep(1)
 
 if __name__ == "__main__":
     import logging
